@@ -9,6 +9,9 @@ https://docs.djangoproject.com/en/5.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
+import dj_database_url
+import os
+
 
 from pathlib import Path
 
@@ -87,10 +90,9 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.config(
+        default='postgres://postgres:5vk9L3CPUwFn87Ccr3lj@answercode.craasmsogntz.us-east-2.rds.amazonaws.com:5432/postgres'
+    )
 }
 
 
